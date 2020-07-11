@@ -41,7 +41,7 @@ class App extends Component {
   }
 
   render() {
-    const {  current } = this.state
+   
     const {  currentWeather } = this.state
    
 
