@@ -4,17 +4,22 @@
 import axios from "axios"
 export async function handler(event, context) {
   try {
-    const response = await axios.get("https://icanhazdadjoke.com", { headers: { Accept: "application/json" } })
+    const response = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=28.0288496&lon=-80.6140221&units=imperial&appid=${process.env.REACT_APP_APIKEY}`, { headers: { Accept: "application/json" } })
     const data = response.data
+    console.log(data) // output to netlify function log
     return {
       statusCode: 200,
-      body: JSON.stringify({ msg: data.joke })
+      body: JSON.stringify(data)
+    
     }
   } catch (err) {
     console.log(err) // output to netlify function log
     return {
       statusCode: 500,
       body: JSON.stringify({ msg: err.message }) // Could be a custom message or object i.e. JSON.stringify(err)
+     
     }
   }
 }
+
+
