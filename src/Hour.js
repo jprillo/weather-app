@@ -1,6 +1,7 @@
 import React from 'react';
 var moment = require('moment');
 
+
 const Hour = ({ reading }) => {
   let newDate = new Date();
   const weekday = reading.dt * 1000
