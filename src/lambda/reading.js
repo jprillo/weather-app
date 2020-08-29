@@ -2,9 +2,13 @@
 // https://github.com/netlify/netlify-lambda/issues/43#issuecomment-444618311
 
 import axios from "axios"
+
+
+
+
 export async function handler(event, context) {
   try {
-    const response = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=28.0288496&lon=-80.6140221&units=imperial&appid=${process.env.REACT_APP_APIKEY}`, { headers: { Accept: "application/json" } })
+    const response = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=28.0285828&lon=-80.6140221&units=imperial&appid=92830d65cdc87c04c2c98297aab2b044`, { headers: { Accept: "application/json" } })
     const data = response.data
     console.log(data) // output to netlify function log
     return {

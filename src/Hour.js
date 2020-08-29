@@ -11,9 +11,9 @@ const Hour = ({ reading }) => {
 
   return (
     <div className="col-sm-2" >
-      <div className="card" style={{backgroundColor: "white", padding: ".5em", width: "80px",  textAlign: "center"}}>
+      <div className="hourCard">
        
-        <p className="text-muted">{moment(newDate).format(' h:mm a')}</p>
+        <p className="text-muted">{moment(newDate).format(' h:mm')}<span style={{fontSize: ".75em"}}>{moment(newDate).format('a')}</span></p>
         <img width="80%" src= {(() => {
         switch (reading.weather[0].main) {
           case "Rain":   return "https://image.flaticon.com/icons/svg/861/861056.svg";
@@ -23,7 +23,7 @@ const Hour = ({ reading }) => {
           default:      return "https://image.flaticon.com/icons/svg/3050/3050031.svg";
         }
       })()} alt="" />
-        <h2>{Math.round(reading.temp)} °F</h2>      
+        <p>{Math.round(reading.temp)} °F</p>      
       </div>
     </div>
   )

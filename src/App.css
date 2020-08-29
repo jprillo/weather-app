@@ -5,6 +5,14 @@ body, h1{
   margin: 0;
   padding: 0;
 }
+h1{
+  font-size: 70px;
+  color: white;
+  text-shadow: 10px 10px 4px rgba(0, 0, 0, 0.6);
+}
+h2{
+  margin: 0;
+}
 
 
 

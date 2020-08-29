@@ -9,9 +9,9 @@ const Day = ({ reading }) => {
  
 
   return (
-    <div className="col-sm-2">
-      <div className="card" style={{backgroundColor: "white", padding: "1em", width: "150px", border: "2px solid blue", textAlign: "center"}}>
-        <h3 className="card-title">{moment(newDate).format('dddd')}</h3>
+    <div className="flex">
+      <div className="day" style={{backgroundColor: "white", padding: "1em",  border: "2px solid blue", textAlign: "center"}}>
+        <h5 className="card-title">{moment(newDate).format('dddd')}</h5>
          <img width="80%" src= {(() => {
         switch (reading.weather[0]) {
           case "Rain":   return "https://image.flaticon.com/icons/svg/861/861056.svg";
@@ -21,7 +21,7 @@ const Day = ({ reading }) => {
           default:      return "https://image.flaticon.com/icons/svg/3050/3050031.svg";
         }
       })()} alt="" />
-        <h2>{Math.round(reading.temp.min)}/{Math.round(reading.temp.max)}  °F</h2>
+        <p>{Math.round(reading.temp.min)}/{Math.round(reading.temp.max)}  °F</p>
  
       </div>
     </div>

@@ -1,9 +1,9 @@
 import React, { Component } from "react"
-import "./App.css"
+
+import "./style/main.scss"
 import Hour from "./Hour"
 import Current from './Current'
 import Day from './Day'
-
 
 
 
@@ -27,10 +27,10 @@ class App extends Component {
       .then(json => this.setState({ currentWeather: json.current.weather[0], current: json.current, hourly: json.hourly, daily: json.daily   }))
   }
   formatHourCards = () => {
-    return this.state.hourly.slice(0, 9).map((reading, index) => <Hour reading={reading} key={index} />)
+    return this.state.hourly.slice(0, 8).map((reading, index) => <Hour reading={reading} key={index} />)
   }
   formatMoreHours = () => {
-    return this.state.hourly.slice(10, 19).map((reading, index) => <Hour reading={reading} key={index} />)
+    return this.state.hourly.slice(8, 16).map((reading, index) => <Hour reading={reading} key={index} />)
   }
   formatDayCards = () => {
     return this.state.daily.slice(1, 6).map((reading, index) => <Day reading={reading} key={index} />)
@@ -43,39 +43,43 @@ class App extends Component {
   render() {
    
     const {  currentWeather } = this.state
+    const {  current } = this.state
+    
    
 
     return (
-
       <div>
+        <Current main={currentWeather.main} temp={current.temp} feels={current.feels_like} />
+        <div style={{textAlign: "center", padding: "100px 0"}}>
    
-  
-
-        <Current main={currentWeather.main} />
-        <h1>Hourly</h1>
-          <button onClick={this.handleToggleVisib}>
-           show more
-            </button>
-       
-          <div style={{padding:"5% 20%",display: "flex", justifyContent: "center", flexWrap: "wrap"}}>
-          
-         
+        
+        <h2>This is what Jason has to expect in the coming hours</h2> 
+          <div className="hourWrap" style={{display: "flex", justifyContent: "center", flexWrap: "wrap"}}>     
+             
           {this.formatHourCards()}
-          {this.state.visib && this.formatMoreHours()}
-          <div style={{display: "flex", justifyContent: "center"}}>
-          {this.formatDayCards()}
-          </div>
-          
          
+      
+             
+            
+             {this.state.visib && this.formatMoreHours()}
+         
+          </div>
+          <button onClick={this.handleToggleVisib}>
+          {this.state.visib ? 'Show Less' : 'Show More'}
+          </button> 
+
+          <div style={{paddingTop: "100px"}}>
+          <h2>Here is how the rest of Jason's week is stacking up.</h2>  
+          <div className="dayWrap" style={{display: "flex",flexWrap: "wrap", justifyContent: "center"}}>
           
-          
-           
+          {this.formatDayCards()}
+          </div> 
+          </div>    
             </div>
+          <h3>Want to know what the weather is like where you are? <br></br>Open a window Bozo. This is Jason weather. Sometimes it isn't all about you.  </h3>
         </div>
     )
   }
 }
-
-
 
 export default App

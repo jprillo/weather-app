@@ -1,0 +1,45 @@
+$primary-color: #FF1988;
+$secondary-color:#97CFED;
+$accent-color: rgb(255, 0, 0);
+$light-color1: white;
+$light-color2: #DFECF3;
+$dark-color1: #497D9A;
+$dark-color2: #1b0f0f;
+$hover-color:$secondary-color;
+$hover-color2: rgb(255, 196, 0);
+$active-color:rgb(255, 196, 0);
+
+.light-back2{
+    background: $light-color2;
+}
+.light-back1{
+    background: $light-color1;
+}
+.secondary-back{
+    background: $secondary-color;
+}
+.primary-back{
+    background: $primary-color;
+}
+.secondary-color{
+    color: $secondary-color;
+}
+.primary-color{
+    color: $primary-color;
+}
+
+
+/* Nav Colors */
+$nav-color: inherit;
+$top-nav-color: #000000;
+$nav-text-color: white;
+$top-nav-text-color: #fffefe;
+$active-color: #000139;
+$nav-contact-color:$secondary-color;
+$nav-contact-text-color:white;
+$burger-color: $secondary-color;
+$button-text: black;
+
+
+
+

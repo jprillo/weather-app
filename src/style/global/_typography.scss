@@ -1,0 +1,75 @@
+/*! Typebase.less v0.1.0 | MIT License */
+
+
+  @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+  
+  $primary-font: 'Montserrat', sans-serif;
+
+  h1, h2, h3, h4, h5 {
+    font-family: $primary-font;
+    font-weight: bold;
+    margin: 0 0 15px 0;
+    @include breakpoint(md){       
+      margin: 0 0 30px 0;         
+     } 
+    
+  }
+
+  p{
+    font-family:$primary-font;
+    font-size: 16px;
+    @include breakpoint(md){       
+      font-size: 20px;        
+     } 
+  
+  }
+
+  h1{
+    color: white;
+    font-size: 33px;
+    @include breakpoint(md){       
+      font-size: 50px;         
+     } 
+     
+  }
+
+  h2{
+    color: $accent-color;
+    font-size: 18px;
+    @include breakpoint(md){       
+      font-size: 25px;         
+     } 
+  }
+
+  h3{
+    color: black;    
+    font-size: 30px;
+    text-align: center;
+    @include breakpoint(md){       
+      font-size: 35px;
+      padding: 80px 10% 30px 10%;         
+     } 
+  }
+
+  h4{
+    color: black;    
+    font-size: 30px;
+    text-align: center;
+    text-transform: capitalize;
+    @include breakpoint(md){       
+      font-size: 40px;
+      margin-bottom:30px;
+              
+     } 
+  }
+
+  
+  h5{
+    color: black;    
+    font-size: 16px;
+    text-align: center;
+    @include breakpoint(md){       
+      font-size: 25px;
+           
+     } 
+  }
