@@ -54,7 +54,7 @@ class App extends Component {
     <meta property="og:url" content="https://jason-weather.netlify.app"/>
     <meta property="og:type" content="website"/>
     <meta property="og:title" content="Find out the weather where Jason is."/>
-    <meta property="og:image" content="https://jasonweather.netlify.app/static/media/jason.f4f1ee9a.png"/>
+    <meta property="og:image" content="https://jasonweather.netlify.app/static/media/jason.ae034cf5.jpg"/>
     <meta property="og:description" content="There are lots of websites that can tell you the weather where you are but only one that can tell you the weather where I am. Sometimes it isn't all about you."/>
     <meta property="og:site_name" content="jason-weather.netlify.app"/>
     <meta property="article:author" content="jasonprillo"/>
@@ -65,7 +65,7 @@ class App extends Component {
     <meta name="twitter:url" content="https://jasonweather.netlify.app"/>
     <meta name="twitter:title" content="Find out the weather where Jason is."/>
     <meta name="twitter:description" content="There are lots of websites that can tell you the weather where you are but only one that can tell you the weather where I am. Sometimes it isn't all about you."/>
-    <meta name="twitter:image" content="https://jasonweather.netlify.app/static/media/jason.f4f1ee9a.png"></meta>
+    <meta name="twitter:image" content="https://jasonweather.netlify.app/static/media/jason.ae034cf5.jpg"></meta>
         </Helmet>
         <Current main={currentWeather.main} temp={current.temp} feels={current.feels_like} />
         <div style={{textAlign: "center", padding: "100px 0"}}>
