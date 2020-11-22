@@ -13,6 +13,8 @@ export default function Current(props) {
               case "Rain": return 'url("https://images.unsplash.com/photo-1561485132-59468cd0b553?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=948&q=80")';
               case "Thunderstorm": return 'url("https://images.unsplash.com/photo-1561485132-59468cd0b553?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=948&q=80")';
               case "Clouds":  return 'url("https://images.unsplash.com/photo-1541119638723-c51cbe2262aa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80")';
+              case "Mist":  return 'url("https://images.unsplash.com/photo-1520813834020-abe3df10aab4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80")';
+             
               default:      return "https://images.unsplash.com/photo-1529126894674-8dd7cb884766?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80";
             }
           })() }}>
@@ -29,6 +31,7 @@ export default function Current(props) {
             case "Rain": return "it is raining. Don't have to water the plants today.";
             case "Thunderstorm": return "there is a thunderstorm. Very Scary.";
             case "Clouds":  return "it is cloudy.";
+            case "Mist":  return "it is misty.";
             default:      return "...loading";
           }
         })()} The temperature is {props.temp} but it feels more like {props.feels}. Check back to see how it all plays out. </p>

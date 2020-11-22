@@ -67,7 +67,7 @@ class App extends Component {
 
 
     
-   console.log(night)
+   console.log(current)
 
     return (
       <div>
