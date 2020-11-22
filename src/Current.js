@@ -3,9 +3,12 @@ import jason from './jason.png';
 
 
 export default function Current(props) {
+
     return (
         <div className="current" style={{textAlign: "center",backgroundImage: (() => {
-            switch (props.main) {
+          
+            switch (props.night) { 
+              case "night":   return 'url("https://images.unsplash.com/photo-1488866022504-f2584929ca5f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1043&q=80")';
               case "Clear":   return 'url("https://images.unsplash.com/photo-1529126894674-8dd7cb884766?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80")';
               case "Rain": return 'url("https://images.unsplash.com/photo-1561485132-59468cd0b553?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=948&q=80")';
               case "Thunderstorm": return 'url("https://images.unsplash.com/photo-1561485132-59468cd0b553?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=948&q=80")';
@@ -19,7 +22,8 @@ export default function Current(props) {
             <div className ="col-6" style={{textAlign:" center", padding: "50px 0"}}>
               <div className="currentReading">
             
-          <p> Hi I’m Jason and right now {(() => {
+        <p> Hi I’m Jason and right now {(() => {
+        
           switch (props.main) {
             case "Clear":   return "it is all clear.";
             case "Rain": return "it is raining. Don't have to water the plants today.";
