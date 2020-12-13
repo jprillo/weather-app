@@ -4,7 +4,7 @@ import "./style/main.scss"
 import Hour from "./Hour"
 import Current from './Current'
 import Day from './Day'
-import jason from './jason.png';
+import jason from './jason.jpg';
 
 
 
