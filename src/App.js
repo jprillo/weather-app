@@ -9,13 +9,14 @@ import jason from './jason.jpg';
 
 
 
+
+
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = { 
       current: [],       
       currentWeather: [],
-     
       hourly: [],
       daily: [],
       visib : false,
@@ -25,21 +26,19 @@ class App extends Component {
 
 
   componentDidMount = () => {
+ 
   
     this.setState({ loading: true })
     fetch("/.netlify/functions/reading")
       .then(response => response.json())
-      .then(json => this.setState({ currentWeather: json.current.weather[0],   current: json.current, hourly: json.hourly, daily: json.daily   }))
+      .then(json => this.setState({ currentWeather: json.current.weather[0], current: json.current, hourly: json.hourly, daily: json.daily  }))
 
   }
  
-     
-  
   
   formatHourCards = () => {
-
   
-    return this.state.hourly.slice(0, 8).map((reading, index) => <Hour reading={reading} key={index} />)
+    return this.state.hourly.slice(1, 8).map((reading, index) => <Hour reading={reading} key={index} />)
   }
   formatMoreHours = () => {
     return this.state.hourly.slice(8, 16).map((reading, index) => <Hour reading={reading} key={index} />)
@@ -48,26 +47,26 @@ class App extends Component {
     return this.state.daily.slice(1, 6).map((reading, index) => <Day reading={reading} key={index} />)
   }
 
+
   handleToggleVisib = () => {
     this.setState({ visib : !this.state.visib })
   }
  
-  
- 
+
 
   render() {
    
     const {  currentWeather } = this.state
     const {  current } = this.state
+    const { daily } = this.state
+ 
+    console.log(daily)
     let hour = (new Date()).getHours() ;   
     let night = (hour >= 18 || hour <= 6) ? "night" :  currentWeather.main;
-
-
- 
-
-
     
-   console.log(current)
+
+
+  
 
     return (
       <div>
@@ -89,31 +88,29 @@ class App extends Component {
     <meta name="twitter:description" content="There are lots of websites that can tell you the weather where you are but only one that can tell you the weather where I am. Sometimes it isn't all about you."/>
     <meta name="twitter:image" content={jason}></meta>
         </Helmet>
-       
-        <Current main={currentWeather.main} temp={current.temp} night={night} feels={current.feels_like} />
-        <div style={{textAlign: "center", padding: "100px 0"}}>
+      
+        <Current main={currentWeather.main}  temp={current.temp} night={night} feels={current.feels_like}  />
+        <div >
    
         
-        <h2>This is what Jason has to expect in the coming hours</h2> 
-          <div className="hourWrap" style={{display: "flex", justifyContent: "center", flexWrap: "wrap"}}>     
-             
+        
+          <div className="hourWrap" style={{paddingTop: "100px"}} >     
+          <h2 style={{marginBottom: "60px"}}>This is what Jason has to expect in the coming hours</h2> 
           {this.formatHourCards()}
-         
-      
-             
-            
-             {this.state.visib && this.formatMoreHours()}
-         
-          </div>
+          {this.state.visib && this.formatMoreHours()}
           <button onClick={this.handleToggleVisib}>
           {this.state.visib ? 'Show Less' : 'Show More'}
           </button> 
+         
+          </div>
+          
 
           <div style={{paddingTop: "100px"}}>
           <h2>Here is how the rest of Jason's week is stacking up.</h2>  
           <div className="dayWrap" style={{display: "flex",flexWrap: "wrap", justifyContent: "center"}}>
           
           {this.formatDayCards()}
+          
           </div> 
           </div>    
             </div>

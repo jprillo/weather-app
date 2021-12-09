@@ -1,5 +1,12 @@
 import React from 'react';
+import sun from './sunIcon.png'
+import clouds from './clouds.png'
+
+
+
 var moment = require('moment');
+
+
 
 
 const Hour = ({ reading }) => {
@@ -10,22 +17,24 @@ const Hour = ({ reading }) => {
  
 
   return (
-    <div className="col-sm-2" >
+  
       <div className="hourCard">
        
-        <p className="text-muted">{moment(newDate).format(' h:mm')}<span style={{fontSize: ".75em"}}>{moment(newDate).format('a')}</span></p>
-        <img width="80%" src= {(() => {
+        <p >{moment(newDate).format(' h:mm')}<span style={{fontSize: ".75em"}}>{moment(newDate).format('a')}</span></p>
+        <img   src= {(() => {
         switch (reading.weather[0].main) {
           case "Rain":   return "https://image.flaticon.com/icons/svg/861/861056.svg";
-          case "Clear": return "https://image.flaticon.com/icons/svg/3050/3050031.svg";
+          case "Clear": return sun;
           case "Mist":  return "https://image.flaticon.com/icons/svg/2675/2675962.svg";
-          case "Clouds":  return "https://image.flaticon.com/icons/svg/1163/1163624.svg";
-          default:      return "https://image.flaticon.com/icons/svg/3050/3050031.svg";
+          case "Clouds":  return clouds;
+          default:      return {sun};
         }
       })()} alt="" />
-        <p>{Math.round(reading.temp)} °F</p>      
+       <p>{reading.weather[0].description}</p>
+        <p>{Math.round(reading.temp)}°F</p> 
+        <p>{(reading.pop)* 100}%</p>     
       </div>
-    </div>
+    
   )
 }
 
