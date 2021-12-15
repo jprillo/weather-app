@@ -79,7 +79,7 @@ class App extends Component {
     <meta property="og:description" content="There are lots of websites that can tell you the weather where you are but only one that can tell you the weather where I am. Sometimes it isn't all about you."/>
     <meta property="og:site_name" content="jason-weather.netlify.app"/>
     <meta property="article:author" content="jasonprillo"/>
-
+    <link rel="apple-touch-icon" href="https://jasonweather.netlify.app/static/media/jason.7d438777.png"/>
     <meta name="twitter:card" content="summary"/>
     <meta name="twitter:site" content="@site_account"/>
     <meta name="twitter:creator" content="@individual_account"/>
