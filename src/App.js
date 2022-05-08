@@ -5,6 +5,7 @@ import Hour from "./Hour"
 import Current from './Current'
 import Day from './Day'
 import jason from './jason.jpg';
+import intro from './intro.mp4'
 
 
 
@@ -92,7 +93,13 @@ class App extends Component {
         <Current main={currentWeather.main}  temp={current.temp} night={night} feels={current.feels_like}  />
         <div >
    
-        
+        <div style={{display: "flex", justifyContent: "center", padding: "5em"}}>
+        <video width="50%" height="auto" controls>
+  <source src={intro} type="video/mp4"/>
+ 
+Your browser does not support the video tag.
+</video>
+        </div>
         
           <div className="hourWrap" style={{paddingTop: "100px"}} >     
           <h2 style={{marginBottom: "60px"}}>This is what Jason has to expect in the coming hours</h2> 
