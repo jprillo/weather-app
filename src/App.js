@@ -15,8 +15,8 @@ import intro from './intro.mp4'
 class App extends Component {
   constructor(props) {
     super(props)
-    this.state = { 
-      current: [],       
+    this.state = {
+      current: [],
       currentWeather: [],
       hourly: [],
       daily: [],
@@ -27,18 +27,22 @@ class App extends Component {
 
 
   componentDidMount = () => {
- 
-  
-    this.setState({ loading: true })
-    fetch("/.netlify/functions/reading")
-      .then(response => response.json())
-      .then(json => this.setState({ currentWeather: json.current.weather[0], current: json.current, hourly: json.hourly, daily: json.daily  }))
+    this.setState({ loading: true });
 
-  }
- 
-  
+    fetch("/.netlify/functions/reading")
+      .then((response) => response.json())
+      .then((json) =>
+        this.setState({
+          currentWeather: json.current.weather[0], // <-- same as before
+          current: json.current,
+          hourly: json.hourly,
+          daily: json.daily
+        })
+      );
+  };
+
   formatHourCards = () => {
-  
+
     return this.state.hourly.slice(1, 8).map((reading, index) => <Hour reading={reading} key={index} />)
   }
   formatMoreHours = () => {
@@ -52,27 +56,27 @@ class App extends Component {
   handleToggleVisib = () => {
     this.setState({ visib : !this.state.visib })
   }
- 
+
 
 
   render() {
-   
+
     const {  currentWeather } = this.state
     const {  current } = this.state
     const { daily } = this.state
- 
+
     console.log(daily)
-    let hour = (new Date()).getHours() ;   
+    let hour = (new Date()).getHours() ;
     let night = (hour >= 18 || hour <= 6) ? "night" :  currentWeather.main;
-    
 
 
-  
+
+
 
     return (
       <div>
         <Helmet>
-     <title>Jason Weather</title>     
+     <title>Jason Weather</title>
     <meta property="og:url" content="https://jason-weather.netlify.app"/>
     <meta property="og:type" content="website"/>
     <meta property="og:title" content="Find out the weather where Jason is."/>
@@ -89,37 +93,37 @@ class App extends Component {
     <meta name="twitter:description" content="There are lots of websites that can tell you the weather where you are but only one that can tell you the weather where I am. Sometimes it isn't all about you."/>
     <meta name="twitter:image" content={jason}></meta>
         </Helmet>
-      
+
         <Current main={currentWeather.main}  temp={current.temp} night={night} feels={current.feels_like}  />
         <div >
-   
+
         <div style={{display: "flex", justifyContent: "center", padding: "5em"}}>
         <video width="50%" height="auto" controls>
   <source src={intro} type="video/mp4"/>
- 
+
 Your browser does not support the video tag.
 </video>
         </div>
-        
-          <div className="hourWrap" style={{paddingTop: "100px"}} >     
-          <h2 style={{marginBottom: "60px"}}>This is what Jason has to expect in the coming hours</h2> 
+
+          <div className="hourWrap" style={{paddingTop: "100px"}} >
+          <h2 style={{marginBottom: "60px"}}>This is what Jason has to expect in the coming hours</h2>
           {this.formatHourCards()}
           {this.state.visib && this.formatMoreHours()}
           <button onClick={this.handleToggleVisib}>
           {this.state.visib ? 'Show Less' : 'Show More'}
-          </button> 
-         
+          </button>
+
           </div>
-          
+
 
           <div style={{paddingTop: "100px"}}>
-          <h2>Here is how the rest of Jason's week is stacking up.</h2>  
+          <h2>Here is how the rest of Jason's week is stacking up.</h2>
           <div className="dayWrap" style={{display: "flex",flexWrap: "wrap", justifyContent: "center"}}>
-          
+
           {this.formatDayCards()}
-          
-          </div> 
-          </div>    
+
+          </div>
+          </div>
             </div>
           <h3>Want to know what the weather is like where you are? <br></br>Open a window Bozo. This is Jason weather. Sometimes it isn't all about you.  </h3>
         </div>
